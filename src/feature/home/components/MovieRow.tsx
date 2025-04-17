@@ -18,9 +18,10 @@ export type Movie = {
 type Props = {
   categoryTitle: string;
   movies: Movie[];
+  className?: string
 };
 
-export default function MovieRow({ categoryTitle, movies }: Props) {
+export default function MovieRow({ categoryTitle, movies, className }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -32,7 +33,7 @@ export default function MovieRow({ categoryTitle, movies }: Props) {
   };
 
   return (
-    <div className="px-6 py-4">
+    <div className={"absolute bottom-0 px-6 py-4 " + className}>
       <h2 className="text-xl font-semibold">{categoryTitle}</h2>
 
       {/* Arrows */}
