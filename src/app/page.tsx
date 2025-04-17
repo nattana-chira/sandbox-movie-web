@@ -1,6 +1,7 @@
 import IconInfo from "@/feature/home/components/IconInfo";
 import IconNotification from "@/feature/home/components/IconNotification";
 import IconSearch from "@/feature/home/components/IconSearch";
+import IconTopTen from "@/feature/home/components/IconTopTen";
 import MovieRow from "@/feature/home/components/MovieRow";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
@@ -227,7 +228,11 @@ export default function Home() {
       {/* Banner */}
       <div className="relative h-[100vh] bg-cover bg-center" style={{ backgroundImage: `url(${bannerMovie.backdropUrl})` }}>
         <div className="absolute inset-0 flex flex-col justify-center px-10">
-          <h1 className="text-white text-4xl md:text-6xl font-bold">{bannerMovie.title}</h1>
+          <h1 className="text-white text-4xl md:text-6xl font-bold mb-2">{bannerMovie.title}</h1>
+          <div className="flex items-center gap-3">
+            <IconTopTen />
+            <div className="text-white font-bold text-xl">#1 in TV Shows Today</div>
+          </div>
           <p className="text-white mt-4 max-w-lg">
             {bannerMovie.overview}
           </p>
