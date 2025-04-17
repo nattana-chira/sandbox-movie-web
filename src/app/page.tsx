@@ -1,3 +1,4 @@
+import IconInfo from "@/feature/home/components/IconInfo";
 import IconNotification from "@/feature/home/components/IconNotification";
 import IconSearch from "@/feature/home/components/IconSearch";
 import MovieRow from "@/feature/home/components/MovieRow";
@@ -231,8 +232,11 @@ export default function Home() {
             {bannerMovie.overview}
           </p>
           <div className="mt-4 flex gap-2">
-            <button className="w-35 h-13 bg-white text-black px-4 py-2 rounded">▶ Play</button>
-            <button className="w-40 h-13 bg-gray-600 text-white px-4 py-2 rounded">More Info</button>
+            <button className="w-35 h-13 bg-white text-black px-4 py-2 rounded font-bold">▶ Play</button>
+            <button className="flex items-center justify-center w-40 h-13 bg-gray-600 text-white px-4 py-2 rounded gap-2 font-bold">
+              <IconInfo />
+              More Info
+            </button>
           </div>
         </div>
       </div>
