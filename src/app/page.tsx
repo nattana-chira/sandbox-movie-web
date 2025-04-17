@@ -190,7 +190,7 @@ const bannerMovie = {
 
 export default function Home() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden m-h-[100vh] bg-black">
       
       {/* Navbar */}
       <nav className="flex absolute w-full z-10 justify-between items-center px-6 py-4 text-white navbar">
@@ -224,21 +224,21 @@ export default function Home() {
       </nav>
 
       {/* Banner */}
-      <div className="relative h-[60vh] bg-cover bg-center" style={{ backgroundImage: `url(${bannerMovie.backdropUrl})` }}>
+      <div className="relative h-[100vh] bg-cover bg-center" style={{ backgroundImage: `url(${bannerMovie.backdropUrl})` }}>
         <div className="absolute inset-0 flex flex-col justify-center px-10">
           <h1 className="text-white text-4xl md:text-6xl font-bold">{bannerMovie.title}</h1>
           <p className="text-white mt-4 max-w-lg">
             {bannerMovie.overview}
           </p>
           <div className="mt-4 flex gap-2">
-            <button className="bg-white text-black px-4 py-2 rounded">▶ Play</button>
-            <button className="bg-gray-600 text-white px-4 py-2 rounded">More Info</button>
+            <button className="w-35 h-13 bg-white text-black px-4 py-2 rounded">▶ Play</button>
+            <button className="w-40 h-13 bg-gray-600 text-white px-4 py-2 rounded">More Info</button>
           </div>
         </div>
-
-        <MovieRow categoryTitle={'Popular on Netflix'} movies={movies} />
       </div>
 
+      {/* Movie Row */}
+      <MovieRow categoryTitle={'Popular on Netflix'} movies={movies} className="-mt-75 mb-10" />
     </div>
   );
 }

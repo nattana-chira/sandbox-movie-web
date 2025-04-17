@@ -33,8 +33,8 @@ export default function MovieRow({ categoryTitle, movies, className }: Props) {
   };
 
   return (
-    <div className={"absolute bottom-0 px-6 py-4 " + className}>
-      <h2 className="text-xl font-semibold">{categoryTitle}</h2>
+    <div className={"px-10 py-4 " + className}>
+      <h2 className="text-3xl font-semibold relative text-white mb-2">{categoryTitle}</h2>
 
       {/* Arrows */}
       <div className="relative">
@@ -43,7 +43,7 @@ export default function MovieRow({ categoryTitle, movies, className }: Props) {
       </div>
 
       {/* Movie Row */}
-      <div className="relative w-500">
+      <div className="relative" style={{ width: '120%' }}>
         <div
           ref={scrollRef}
           className="flex overflow-x-hidden overflow-y-hidden gap-2 scrollbar-hide scroll-smooth snap-x snap-mandatory"
@@ -51,11 +51,11 @@ export default function MovieRow({ categoryTitle, movies, className }: Props) {
           {movies.map((movie) => (
             <div
               key={movie.id}
-              className="min-w-[375px] snap-start shrink-0 hover:scale-105 transition-transform duration-200"
+              className="min-w-[380px] snap-start shrink-0 hover:scale-105 transition-transform duration-200"
             >
               <Image
                 src={`${movie.backdropUrl}`}
-                width={375}
+                width={380}
                 height={211}
                 alt={movie.title}
                 className="rounded"
