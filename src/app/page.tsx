@@ -196,10 +196,18 @@ export default function Home() {
       
       {/* Navbar */}
       <nav className="flex absolute w-full z-10 justify-between items-center px-6 py-4 text-white navbar">
-        <div className="text-red-600 text-2xl font-bold">NETFLIX</div>
-        <div className="flex justify-between items-center w-full ml-8">
+        <div className="text-red-600 text-2xl font-bold">
+          <Image
+            src="/netflix-icon.png"
+            alt="Netflix Logo"
+            width={150}
+            height={10}
+            priority
+          />
+        </div>
+        <div className="flex justify-between items-center w-full text-lg ml-8">
           <ul className="flex gap-4">
-            <li>Home</li>
+            <li className="font-bold">Home</li>
             <li>TV Shows</li>
             <li>Movies</li>
             <li>New & Popular</li>
@@ -214,7 +222,7 @@ export default function Home() {
             <li className="flex">
               <Image
                 src="/netflix-profile-icon.png"
-                alt="Netflix Logo"
+                alt="Profile Logo"
                 width={25}
                 height={10}
                 priority
