@@ -33,7 +33,7 @@ export default function MovieRow({ categoryTitle, movies }: Props) {
 
   return (
     <div className="px-6 py-4">
-      <h2 className="text-white text-xl font-semibold">{categoryTitle}</h2>
+      <h2 className="text-xl font-semibold">{categoryTitle}</h2>
 
       {/* Arrows */}
       <div className="relative">
@@ -53,7 +53,7 @@ export default function MovieRow({ categoryTitle, movies }: Props) {
               className="min-w-[375px] snap-start shrink-0 hover:scale-105 transition-transform duration-200"
             >
               <Image
-                src={`https://image.tmdb.org/t/p/w500${movie.backdropUrl}`}
+                src={`${movie.backdropUrl}`}
                 width={375}
                 height={211}
                 alt={movie.title}

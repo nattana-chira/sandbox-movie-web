@@ -17,8 +17,8 @@ export default function ScrollArrowButton({ direction, onClick }: Props) {
   return (
     <button
       onClick={() => onClick(direction)}
-      className={`absolute h-[211px] w-15 ${isLeft ? 'left-0' : 'right-0'} 
-        top-1/2 -translate-y-1/2 z-10 
+      className={`absolute h-[211px] w-15 ${isLeft ? 'left-0' : 'right-0 -mr-6'} 
+        -translate-y-1/2 z-10 mt-26
         bg-black/50 hover:bg-black/80 text-white 
         hover:text-red-500 transition p-2`}
     >
