@@ -2,18 +2,8 @@
 
 import Image from 'next/image';
 import { useRef } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import ScrollArrowButton from './MovieArrow';
-
-export type Movie = {
-  id: number;
-  title: string;
-  overview: string;
-  releaseDate: string;
-  posterUrl: string;
-  backdropUrl: string;
-  voteAverage: number;
-};
+import { Movie } from '../domain/movie.entity';
 
 type Props = {
   categoryTitle: string;

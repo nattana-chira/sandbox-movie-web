@@ -1,14 +1,14 @@
 'use client';
 
-import IconInfo from "@/feature/home/components/IconInfo";
-import IconNotification from "@/feature/home/components/IconNotification";
-import IconSearch from "@/feature/home/components/IconSearch";
-import IconTopTen from "@/feature/home/components/IconTopTen";
-import MovieRow from "@/feature/home/components/MovieRow";
+import IconInfo from "@/ui/components/IconInfo";
+import IconNotification from "@/ui/components/IconNotification";
+import IconSearch from "@/ui/components/IconSearch";
+import IconTopTen from "@/ui/components/IconTopTen";
+import MovieRow from "@/feature/movie/presentation/MovieRow";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { Fragment, useEffect } from "react";
-import useMovies from "../hooks/useMovies";
+import useMovies from "../../feature/movie/presentation/useMovies";
 
 export default function HomePage() {
   const { movies, featuredMovie, fetchMovies } = useMovies()
