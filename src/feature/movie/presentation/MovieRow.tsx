@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useRef } from 'react';
 import ScrollArrowButton from './MovieArrow';
-import { Movie } from '../domain/movie.entity';
+import { Movie } from '../domain/entity/movie';
 
 type Props = {
   categoryTitle: string;

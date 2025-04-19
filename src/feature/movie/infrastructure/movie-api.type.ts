@@ -1,4 +1,4 @@
-import { Movie } from "../domain/movie.entity";
+import { Movie } from "../domain/entity/movie";
 
 export type MovieResponse = {
   data: Movie[];

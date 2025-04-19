@@ -10,36 +10,37 @@ import Image from "next/image";
 import { Fragment, useEffect, useState } from "react";
 import useMovies from "../../feature/movie/presentation/useMovies";
 import MovieDetailModal from "./MovieDetailPage";
-import { Movie } from "@/feature/movie/domain/movie.entity";
+import { Movie } from "@/feature/movie/domain/entity/movie";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function HomePage() {
   const { movies, featuredMovie, fetchMovies } = useMovies()
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedMovie, setSelectedMovie] = useState<Movie>()
   const router = useRouter()
   const searchParams = useSearchParams()
+  const movieId = searchParams.get('movieId')
 
   useEffect(() => {
     fetchMovies()
+
+    if (movieId) {
+      setIsOpen(true)
+    }
   }, [])
 
   const onSelectMovie = (movie: Movie) => {
-    setSelectedMovie(movie)
     setIsOpen(true)
+    router.push(`?movieId=${movie.id}`, { scroll: false });
   }
 
-  // const handleMovieClick = (id: string) => {
-  //   router.push(`?movieId=${id}`, { scroll: false });
-  // };
-
-  // const closeModal = () => {
-  //   router.push('/movies', { scroll: false });
-  // };
+  const onMovieDetailModalClose = () => {
+    setIsOpen(false)
+    router.push('/', { scroll: false });
+  }
 
   return (
     <div className="overflow-x-hidden m-h-[100vh] bg-black">
-      <MovieDetailModal isOpen={isOpen} onClose={() => setIsOpen(false)} movie={selectedMovie} />
+      <MovieDetailModal isOpen={isOpen} onClose={onMovieDetailModalClose} />
       
       {/* Navbar */}
       <nav className="flex absolute w-full z-10 justify-between items-center px-6 py-4 text-white navbar">
