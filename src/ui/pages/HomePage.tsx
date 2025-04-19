@@ -7,18 +7,39 @@ import IconTopTen from "@/ui/components/IconTopTen";
 import MovieRow from "@/feature/movie/presentation/MovieRow";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import useMovies from "../../feature/movie/presentation/useMovies";
+import MovieDetailModal from "./MovieDetailPage";
+import { Movie } from "@/feature/movie/domain/movie.entity";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function HomePage() {
   const { movies, featuredMovie, fetchMovies } = useMovies()
+  const [isOpen, setIsOpen] = useState(false)
+  const [selectedMovie, setSelectedMovie] = useState<Movie>()
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
   useEffect(() => {
     fetchMovies()
   }, [])
 
+  const onSelectMovie = (movie: Movie) => {
+    setSelectedMovie(movie)
+    setIsOpen(true)
+  }
+
+  // const handleMovieClick = (id: string) => {
+  //   router.push(`?movieId=${id}`, { scroll: false });
+  // };
+
+  // const closeModal = () => {
+  //   router.push('/movies', { scroll: false });
+  // };
+
   return (
     <div className="overflow-x-hidden m-h-[100vh] bg-black">
+      <MovieDetailModal isOpen={isOpen} onClose={() => setIsOpen(false)} movie={selectedMovie} />
       
       {/* Navbar */}
       <nav className="flex absolute w-full z-10 justify-between items-center px-6 py-4 text-white navbar">
@@ -86,7 +107,7 @@ export default function HomePage() {
       </div>
 
       {/* Movie Row */}
-      <MovieRow categoryTitle={'Popular on Netflix'} movies={movies} className="-mt-75 mb-10" />
+      <MovieRow categoryTitle={'Popular on Netflix'} movies={movies} className="-mt-75 mb-10" onSelectMovie={onSelectMovie} />
     </div>
   );
 }

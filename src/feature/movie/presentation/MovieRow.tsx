@@ -8,10 +8,11 @@ import { Movie } from '../domain/movie.entity';
 type Props = {
   categoryTitle: string;
   movies: Movie[];
-  className?: string
+  className?: string;
+  onSelectMovie: Function;
 };
 
-export default function MovieRow({ categoryTitle, movies, className }: Props) {
+export default function MovieRow({ categoryTitle, movies, onSelectMovie, className }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -42,6 +43,7 @@ export default function MovieRow({ categoryTitle, movies, className }: Props) {
             <div
               key={movie.id}
               className="min-w-[380px] snap-start shrink-0 hover:scale-105 transition-transform duration-200"
+              onClick={() => onSelectMovie(movie)}
             >
               <Image
                 src={`${movie.backdropUrl}`}
