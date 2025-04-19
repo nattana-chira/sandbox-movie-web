@@ -4,8 +4,8 @@ import { MovieAPI } from "../infrastructure/movie-api-service";
 
 const createMovieService = (movieRepo: MovieRepository) => {
   return {
-    getPopular: async (): Promise<Movie[]> => {
-      return await movieRepo.getPopular();
+    getMovies: async (): Promise<Movie[]> => {
+      return await movieRepo.getMovies();
     }
   }
 };

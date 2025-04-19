@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { handleError } from "@/lib/utils/apiErrorHandler"
 import { Movie } from "../domain/movie.entity"
-import { movieService } from "../application/movie-service"
+import { movieService } from "../application/movie.use-case"
 
 export default function useMovies() {
   const [featuredMovie, setFeaturedMovie] = useState<Movie>()
@@ -9,7 +9,7 @@ export default function useMovies() {
   
   const fetchMovies = async () => {
     try {
-      const _movies = await movieService.getPopular()
+      const _movies = await movieService.getMovies()
       const [_featuredMovie, ...restMovies] = _movies
       setMovies(restMovies)
       setFeaturedMovie(_featuredMovie)

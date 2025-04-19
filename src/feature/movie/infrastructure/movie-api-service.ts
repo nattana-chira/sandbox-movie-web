@@ -3,7 +3,7 @@ import { MovieRepository } from "../domain/movie-repository";
 import { Movie } from "../domain/movie.entity";
 
 export const MovieAPI: MovieRepository = {
-  getPopular: async (): Promise<Movie[]> => {
+  getMovies: async (): Promise<Movie[]> => {
     const response = await axios.get<Movie[]>("/movies")
     return response.data
   }
