@@ -2,7 +2,7 @@
 
 A sandbox project that clone Netflix homepage using **NextJs** as web frontend
 
-## Installation
+## 📦 Installation
 
 First, copy .env file:
 ```bash
@@ -23,9 +23,9 @@ yarn dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-** This won't work unless you serve another project **sandbox-movie-web** as a backend API.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.  
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.  
+** This won't work unless you serve another project **sandbox-movie-web** as a backend API.  
 
 ## 🛠️ Tech Stack
 
@@ -38,7 +38,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 **Next-intl** locales translation
 **Next-themes** light/dark theme
 
-## Project Structure
+## 📁 Project Structure
 ```bash
 project/
 ├── public/                              # Public assets (images, locale json)
