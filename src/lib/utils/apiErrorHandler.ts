@@ -4,6 +4,7 @@ const authExceptions = [
   "TokenExpiredError"
 ]
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function handleError(e: any) {
   console.error(e)
 

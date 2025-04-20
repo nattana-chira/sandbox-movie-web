@@ -32,7 +32,7 @@ export default function HomePage() {
     if (movieId) {
       setIsOpen(true)
     }
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const onSelectMovie = (movie: Movie) => {
     setIsOpen(true)

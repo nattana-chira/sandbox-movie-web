@@ -26,13 +26,13 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
     if (movieId) {
       fetchMovieDetails(Number(movieId))
     }
-  }, [movieId])
+  }, [movieId]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!isOpen) {
       setMovieDetails(undefined)
     }
-  }, [isOpen])
+  }, [isOpen]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Dialog open={isOpen} onClose={onClose} className="fixed inset-0 z-50">

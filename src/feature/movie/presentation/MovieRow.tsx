@@ -9,7 +9,7 @@ type Props = {
   categoryTitle: string;
   movies: Movie[];
   className?: string;
-  onSelectMovie: Function;
+  onSelectMovie: (movie: Movie) => void
 };
 
 export default function MovieRow({ categoryTitle, movies, onSelectMovie, className }: Props) {

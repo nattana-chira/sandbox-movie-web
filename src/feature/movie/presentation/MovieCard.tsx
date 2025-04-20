@@ -6,7 +6,7 @@ import CircleIconWrapper from "@/ui/components/CircleIconWrapper";
 
 type Props = {
   movie: Movie;
-  onSelectMovie: Function
+  onSelectMovie: (movie: Movie) => void
 };
 
 export default function MovieCard({ movie, onSelectMovie }: Props) {
