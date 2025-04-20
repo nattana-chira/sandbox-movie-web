@@ -30,5 +30,5 @@ export default function useMovies() {
     }
   }
 
-  return { movies, movieDetails, featuredMovie, fetchMovies, fetchMovieDetails }
+  return { movies, movieDetails, featuredMovie, setMovieDetails, fetchMovies, fetchMovieDetails }
 }

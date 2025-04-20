@@ -12,6 +12,7 @@ import useMovies from "../../feature/movie/presentation/useMovies";
 import MovieDetailModal from "./MovieDetailPage";
 import { Movie } from "@/feature/movie/domain/entity/movie";
 import { useRouter, useSearchParams } from "next/navigation";
+import FeaturedMovieLoadingSkeleton from "@/feature/movie/presentation/FeaturedMovieLoadingSkeleton";
 
 export default function HomePage() {
   const { movies, featuredMovie, fetchMovies } = useMovies()
@@ -106,36 +107,42 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Banner */}
-      <div className="relative bg-cover bg-center responsive-banner" style={{ backgroundImage: `url(${featuredMovie?.backdropUrl})` }}>
-        <div className="absolute inset-0 flex flex-col justify-center px-10">
-          {featuredMovie && (
-            <Fragment>
-              <h1 className="text-white text-4xl font-bold mb-2">{featuredMovie.title}</h1>
-              <div className="flex items-center gap-3">
-                <IconTopTen className="icon-xl" />
-                <div className="text-white font-bold text-xl">#1 in TV Shows Today</div>
-              </div>
-              <p className="text-white mt-4 max-w-lg text-base">
-                {featuredMovie.overview}
-              </p>
-              <div className="mt-4 flex gap-2">
-                <button className="button-xl text-xl bg-white text-black rounded font-bold">
-                  ▶ Play
-                </button>
-                <button className="button-2xl text-xl flex items-center justify-center bg-gray-600 text-white rounded font-bold">
-                  <IconInfo className="icon-base"/>
-                  More Info
-                </button>
-              </div>
-            </Fragment>
-          )}
+      {!featuredMovie && <FeaturedMovieLoadingSkeleton />}
 
-        </div>
-      </div>
+      {featuredMovie && (
+        <Fragment>
+          {/* Featured Movie Banner */}
+          <div className="relative bg-cover bg-center responsive-banner" style={{ backgroundImage: `url(${featuredMovie.backdropUrl})` }}>
+            <div className="absolute inset-0 flex flex-col justify-center px-10">
+              {featuredMovie && (
+                <Fragment>
+                  <h1 className="text-white text-4xl font-bold mb-2">{featuredMovie.title}</h1>
+                  <div className="flex items-center gap-3">
+                    <IconTopTen className="icon-xl" />
+                    <div className="text-white font-bold text-xl">#1 in TV Shows Today</div>
+                  </div>
+                  <p className="text-white mt-4 max-w-lg text-base">
+                    {featuredMovie.overview}
+                  </p>
+                  <div className="mt-4 flex gap-2">
+                    <button className="button-xl text-xl bg-white text-black rounded font-bold">
+                      ▶ Play
+                    </button>
+                    <button className="button-2xl text-xl flex items-center justify-center bg-gray-600 text-white rounded font-bold">
+                      <IconInfo className="icon-base"/>
+                      More Info
+                    </button>
+                  </div>
+                </Fragment>
+              )}
 
-      {/* Movie Row */}
-      <MovieRow categoryTitle={'Popular on Netflix'} movies={movies} className="-mt-[10vw] mb-10" onSelectMovie={onSelectMovie} />
+            </div>
+          </div>
+
+          {/* Movie Row */}
+          <MovieRow categoryTitle={'Popular on Netflix'} movies={movies} className="-mt-[10vw] mb-10" onSelectMovie={onSelectMovie} />
+        </Fragment>
+      )}
     </div>
   );
 }

@@ -27,9 +27,9 @@ export default function MovieEpisode({ movieDetails, episode, isFirstEp = false 
       <div className="flex-1">
         <div className="flex justify-between items-start">
           <h3 className="font-semibold text-white">{episode.title}</h3>
-          <span className="text-sm text-gray-400">{episode.duration}</span>
+          <span className="text-sm-fixed text-gray-400">{episode.duration}</span>
         </div>
-        <p className="text-sm text-gray-400 mt-1">{episode.description}</p>
+        <p className="text-sm-fixed text-gray-400 mt-1">{episode.description}</p>
       </div>
     </div>
   )

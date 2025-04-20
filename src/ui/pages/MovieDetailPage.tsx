@@ -7,6 +7,8 @@ import IconTopTen from "../components/IconTopTen";
 import JoinedText from "../components/JoinedText";
 import useMovies from "@/feature/movie/presentation/useMovies";
 import { useSearchParams } from "next/navigation";
+import LoadingSkeletion from "../../feature/movie/presentation/MovieDetailLoadingSkeleton";
+import MovieDetailsLoadingSkeletion from "../../feature/movie/presentation/MovieDetailLoadingSkeleton";
 
 interface Props {
   isOpen: boolean;
@@ -14,7 +16,7 @@ interface Props {
 }
 
 export default function MovieDetailModal({ isOpen, onClose }: Props) {
-  const { movieDetails, fetchMovieDetails } = useMovies()
+  const { movieDetails, setMovieDetails, fetchMovieDetails } = useMovies()
   const [firstEp, ...restEps] = movieDetails ? movieDetails.episodes : []
     const searchParams = useSearchParams()
     const movieId = searchParams.get('movieId')
@@ -25,6 +27,12 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
     }
   }, [movieId])
 
+  useEffect(() => {
+    if (!isOpen) {
+      setMovieDetails(undefined)
+    }
+  }, [isOpen])
+
   return (
     <Dialog open={isOpen} onClose={onClose} className="fixed inset-0 z-50">
       <div className="fixed inset-0 bg-black/80 backdrop-blur-sm" aria-hidden="true" />
@@ -34,6 +42,8 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
             <button onClick={onClose} className="absolute top-4 right-4 z-10 p-2 text-white hover:text-red-400 cursor-pointer">
               <IconClose />
             </button>
+
+            {!movieDetails && <MovieDetailsLoadingSkeletion />}
 
             {movieDetails && (
               <Fragment>
@@ -122,7 +132,6 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                       </Fragment>
                     )}
                   </div>
-
                 </div>
             </Fragment>
             )}
