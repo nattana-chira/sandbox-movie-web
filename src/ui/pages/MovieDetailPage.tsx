@@ -7,8 +7,8 @@ import IconTopTen from "../components/IconTopTen";
 import JoinedText from "../components/JoinedText";
 import useMovies from "@/feature/movie/presentation/useMovies";
 import { useSearchParams } from "next/navigation";
-import LoadingSkeletion from "../../feature/movie/presentation/MovieDetailLoadingSkeleton";
 import MovieDetailsLoadingSkeletion from "../../feature/movie/presentation/MovieDetailLoadingSkeleton";
+import { useTranslations } from "next-intl";
 
 interface Props {
   isOpen: boolean;
@@ -18,8 +18,9 @@ interface Props {
 export default function MovieDetailModal({ isOpen, onClose }: Props) {
   const { movieDetails, setMovieDetails, fetchMovieDetails } = useMovies()
   const [firstEp, ...restEps] = movieDetails ? movieDetails.episodes : []
-    const searchParams = useSearchParams()
-    const movieId = searchParams.get('movieId')
+  const searchParams = useSearchParams()
+  const movieId = searchParams.get('movieId')
+  const t = useTranslations('MovieDetailPage');
 
   useEffect(() => {
     if (movieId) {
@@ -53,7 +54,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
                   <div className="absolute bottom-0 pl-6 text-2xl-fixed font-bold">{movieDetails.title}</div>
                   <button className="button-2xl absolute bottom-0 ml-6 mb-20 bg-white text-black rounded font-bold text-xl">
-                    ▶ Next Episode
+                    ▶ {t('next_episode')}
                   </button>
                 </div>
 
@@ -62,7 +63,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                   <div className="flex max-ful gap-6">
                     <div className="w-[60%]">
                       <div className="flex justify-between items-start mb-4">
-                        <h2 className="text-xl-fixed text-gray-300">{movieDetails.year} {movieDetails.totalSeasons} Seasons [HD]</h2>
+                        <h2 className="text-xl-fixed text-gray-300">{movieDetails.year} {movieDetails.totalSeasons} {t('seasons')} [HD]</h2>
                       </div>
                       
                       <div className="flex gap-2 mb-4">
@@ -72,7 +73,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
 
                       <div className="flex gap-2 mb-4 text-xl-fixed font-bold">
                         <IconTopTen />
-                        1# in TV Shows Today
+                        1# {t('in_tv_shows_today')}
                       </div>
                       
                       <p className="mb-6">
@@ -83,7 +84,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                     <div className="w-[40%]">
                       {/* Cast */}
                       <div className="text-gray-400 text-sm-fixed mb-6">
-                        <span>Cast: </span> 
+                        <span>{t('cast')}: </span> 
                         {movieDetails.casts.map((name, index) => (
                           <JoinedText 
                             key={index} 
@@ -96,7 +97,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
             
                       {/* Genre */}
                       <div className="text-gray-400 text-sm-fixed mb-6">
-                        <span>Genres: </span> 
+                        <span>{t('genres')}: </span> 
                         {movieDetails.genres.map(({ name }, index) => (
                           <JoinedText 
                             key={index} 
@@ -109,7 +110,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
               
                       {/* Emotions */}
                       <div className="text-gray-400 text-sm-fixed">
-                        <span>This Show Is: </span> 
+                        <span>{t('this_show_is')}: </span> 
                         {movieDetails.emotions.map((name, index) => (
                           <JoinedText 
                             key={index} 
@@ -124,7 +125,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                   
                   {/* Episode list */}
                   <div className="space-y-4">
-                    <h3 className="text-2xl-fixed font-bold">Episodes</h3>
+                    <h3 className="text-2xl-fixed font-bold">{t('episodes')}</h3>
                     {movieDetails && (
                       <Fragment>
                         <MovieEpisode movieDetails={movieDetails} episode={firstEp} isFirstEp />

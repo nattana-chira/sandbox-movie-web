@@ -1,0 +1,23 @@
+{
+  "HomePage": {
+    "home": "หน้าแรก",
+    "tv_shows": "รายการโชว์",
+    "movies": "หนัง",
+    "new_and_popular": "มาใหม่ & ยอดฮิต",
+    "my_list": "รายการของฉัน",
+    "browse_by_languages": "ค้นหาตามภาษา",
+    "kids": "สำหรับเด็ก",
+    "in_tv_shows_today": "ในรายการโชว์วันนี้",
+    "play": "รับชม",
+    "more_info": "ดูเพิ่มเติม"
+  },
+  "MovieDetailPage": {
+    "next_episode": "ตอนต่อไป",
+    "seasons": "ซีซั่น",
+    "in_tv_shows_today": "ในรายการโชว์วันนี้",
+    "cast": "นักแสดง",
+    "genres": "ประเภท",
+    "this_show_is": "แนว",
+    "episodes": "ตอนทั้งหมด"
+  }
+}
