@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Getting Started
 
-## Getting Started
+A sandbox project that clone Netflix homepage using **NextJs** as web frontend
 
-First, run the development server:
+## Installation
 
+First, copy .env file:
+```bash
+cp .env.example .env
+```
+
+Then install dependenceis:
+```bash
+npm install
+```
+
+Finally, run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 # or
-pnpm dev
-# or
 bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+** This won't work unless you serve another project **sandbox-movie-web** as a backend API.
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+**TypeScript** 
+**Next.js** 
+**TailwindCSS**
+**Headlessui** UI (modal)
+**HeroIcons** icon asset
+**Axios**
+**Next-intl** locales translation
+**Next-themes** light/dark theme
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+```bash
+project/
+├── public/                              # Public assets (images, locale json)
+├── src/                                 # Source code
+│   ├── app/                             # Auto route by NextJs project structure. Server component in app/ contains no logic
+│   │   └── [locale]
+│   │   │   └── page.tsx
+│   ├── feature/                         # Group feature module by functionality
+│   │   └── movie                        # All code related to Movie context
+│   │       ├── application/             # Application layer contain movie use cases and how they are handled
+│   │       │   └── movie.use-case.ts    
+│   │       ├── domain/                  # Domain layer contain movie related entities and interface for movie use cases
+│   │       │   ├── entity
+│   │       │   └── movie.repository.ts    
+│   │       ├── infrastructure/          # Infrastructure layer implment domain interface and act like a service to perform anything outside the app (API calls etc.)
+│   │       │   ├── movie-api-service.ts
+│   │       │   └── ...    
+│   │       └── presentation/            # Presentation layer is any entry points controller and present how the application look (UI, UI functionalities) 
+│   │           ├── SomeComponent.ts
+│   │           └── useHook.ts   
+│   ├── libs/                            # Utils & 3rd party libraries
+│   │   ├── i18n/                        # i18n config files
+│   │   │   ├── messages                 # i18n translations
+│   │   │   └── ...   
+│   │   ├── utils/                       # Common helper functions
+│   │   └── axiosInstance/               # Config of axios instance
+│   ├── ui/                              # UI Components those not belong to any particular feature
+│   │   ├── components/                  # Common components (Button, Icon, Loading...)
+│   │   └── pages/                       # Page components (The container component of any page)
+│   │       ├── Homepage.tsx
+│   │       └── ...
+│   ├── config.ts                        # Constant variable (env)
+│   └── middleware.ts                    # Middleware
+├── .env.example                         # Example of .env file
+...
+```
