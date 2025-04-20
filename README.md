@@ -1,7 +1,9 @@
 # Getting Started
 
 A sandbox project that clone Netflix homepage using **NextJs** as web frontend.  
-Live demo: [https://sandbox-movie-web.vercel.app](https://sandbox-movie-web.vercel.app)
+Live demo: [https://sandbox-movie-web.vercel.app](https://sandbox-movie-web.vercel.app)  
+** Sometimes, Movie API shut down due to inactivity.  
+** If webpage take long time to response, **wait for a minute and try refresh the page**
 
 ## 📦 Installation
 
