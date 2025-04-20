@@ -41,7 +41,14 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 - **Axios**  
 - **Next-intl** locales translation  
 - **Next-themes** light/dark theme  
+  
+## 🚀 Features
 
+- Animations  
+- Light/Dark theme support  
+- Localization
+- Movie detail page  
+  
 ## 📁 Project Structure
 ```bash
 project/
