@@ -29,14 +29,14 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## 🛠️ Tech Stack
   
-**TypeScript**  
-**Next.js**   
-**TailwindCSS**  
-**Headlessui** UI (modal)  
-**HeroIcons** icon asset  
-**Axios**  
-**Next-intl** locales translation  
-**Next-themes** light/dark theme  
+- **TypeScript**  
+- **Next.js**   
+- **TailwindCSS**  
+- **Headlessui** UI (modal)  
+- **HeroIcons** icon asset  
+- **Axios**  
+- **Next-intl** locales translation  
+- **Next-themes** light/dark theme  
 
 ## 📁 Project Structure
 ```bash
