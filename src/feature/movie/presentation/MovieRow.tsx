@@ -34,7 +34,7 @@ export default function MovieRow({ categoryTitle, movies, onSelectMovie, classNa
       </div>
 
       {/* Movie Row */}
-      <div className="relative" style={{ width: '120%' }}>
+      <div className="relative w-[calc(96vw)]">
         <div
           ref={scrollRef}
           className="flex overflow-x-hidden overflow-y-hidden gap-2 scrollbar-hide scroll-smooth snap-x snap-mandatory"
@@ -42,16 +42,18 @@ export default function MovieRow({ categoryTitle, movies, onSelectMovie, classNa
           {movies.map((movie) => (
             <div
               key={movie.id}
-              className="min-w-[380px] snap-start shrink-0 hover:scale-105 transition-transform duration-200"
+              className="snap-start shrink-0 hover:scale-105 transition-transform duration-200 cursor-pointer"
               onClick={() => onSelectMovie(movie)}
             >
-              <Image
-                src={`${movie.backdropUrl}`}
-                width={380}
-                height={211}
-                alt={movie.title}
-                className="rounded"
-              />
+     
+                <Image
+                  src={`${movie.backdropUrl}`}
+                  width={380}
+                  height={211}
+                  alt={movie.title}
+                  className="w-[45vw] sm:w-[40vw] md:w-[23vw] lg:w-[15vw] rounded"
+                />
+          
             </div>
           ))}
         </div>

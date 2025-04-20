@@ -6,7 +6,7 @@ import MovieEpisode from "@/feature/movie/presentation/MovieEpisode";
 import IconTopTen from "../components/IconTopTen";
 import JoinedText from "../components/JoinedText";
 import useMovies from "@/feature/movie/presentation/useMovies";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 interface Props {
   isOpen: boolean;
@@ -31,7 +31,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
       <div className="fixed inset-0 flex items-start justify-center overflow-y-auto">
 
           <DialogPanel className="relative w-full max-w-5xl mx-auto rounded-xl bg-zinc-900 text-white shadow-xl overflow-hidden mt-10">
-            <button onClick={onClose} className="absolute top-4 right-4 z-10 p-2 text-white hover:text-red-400">
+            <button onClick={onClose} className="absolute top-4 right-4 z-10 p-2 text-white hover:text-red-400 cursor-pointer">
               <IconClose />
             </button>
 
@@ -41,8 +41,8 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                 <div className="relative h-128 w-full">
                   <Image src={movieDetails.backdropUrl} alt={movieDetails.title} fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 pl-6 text-2xl font-bold">{movieDetails.title}</div>
-                  <button className="absolute bottom-0 ml-6 mb-20 w-65 h-15 bg-white text-black rounded font-bold text-2xl">
+                  <div className="absolute bottom-0 pl-6 text-2xl-fixed font-bold">{movieDetails.title}</div>
+                  <button className="button-2xl absolute bottom-0 ml-6 mb-20 bg-white text-black rounded font-bold text-xl">
                     ▶ Next Episode
                   </button>
                 </div>
@@ -52,15 +52,15 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                   <div className="flex max-ful gap-6">
                     <div className="w-[60%]">
                       <div className="flex justify-between items-start mb-4">
-                        <h2 className="text-xl text-gray-300">{movieDetails.year} {movieDetails.totalSeasons} Seasons [HD]</h2>
+                        <h2 className="text-xl-fixed text-gray-300">{movieDetails.year} {movieDetails.totalSeasons} Seasons [HD]</h2>
                       </div>
                       
                       <div className="flex gap-2 mb-4">
-                        <span className="text-sm border-white border-1 pt-1 px-2">16+</span>
+                        <span className="text-sm-fixed border-white border-1 pt-1 px-2">16+</span>
                         {movieDetails.adultTags.join(', ')}
                       </div>
 
-                      <div className="flex gap-2 mb-4 text-xl font-bold">
+                      <div className="flex gap-2 mb-4 text-xl-fixed font-bold">
                         <IconTopTen />
                         1# in TV Shows Today
                       </div>
@@ -72,7 +72,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                     
                     <div className="w-[40%]">
                       {/* Cast */}
-                      <div className="text-gray-400 text-sm mb-6">
+                      <div className="text-gray-400 text-sm-fixed mb-6">
                         <span>Cast: </span> 
                         {movieDetails.casts.map((name, index) => (
                           <JoinedText 
@@ -85,7 +85,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                       </div>
             
                       {/* Genre */}
-                      <div className="text-gray-400 text-sm mb-6">
+                      <div className="text-gray-400 text-sm-fixed mb-6">
                         <span>Genres: </span> 
                         {movieDetails.genres.map(({ name }, index) => (
                           <JoinedText 
@@ -98,7 +98,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                       </div>
               
                       {/* Emotions */}
-                      <div className="text-gray-400 text-sm">
+                      <div className="text-gray-400 text-sm-fixed">
                         <span>This Show Is: </span> 
                         {movieDetails.emotions.map((name, index) => (
                           <JoinedText 
@@ -114,7 +114,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                   
                   {/* Episode list */}
                   <div className="space-y-4">
-                    <h3 className="text-2xl font-bold">Episodes</h3>
+                    <h3 className="text-2xl-fixed font-bold">Episodes</h3>
                     {movieDetails && (
                       <Fragment>
                         <MovieEpisode movieDetails={movieDetails} episode={firstEp} isFirstEp />

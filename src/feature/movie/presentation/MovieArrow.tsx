@@ -17,12 +17,16 @@ export default function ScrollArrowButton({ direction, onClick }: Props) {
   return (
     <button
       onClick={() => onClick(direction)}
-      className={`absolute h-[215px] w-15 ${isLeft ? 'left-0' : 'right-0 -mr-6'} 
-        -translate-y-1/2 z-10 mt-27
+      className={`
+        max-w-[60px] w-[calc(4.5vw)] sm:w-[calc(4.5vw)] md:w-[calc(4vw)] lg:w-[calc(3.5vw)] 
+        h-[calc(25.3vw)] sm:h-[calc(22.4vw)] md:h-[calc(13vw)] lg:h-[calc(8.5vw)]
+        absolute h-[215px]-translate-y-1/2 z-10 cursor-pointer
         bg-black/50 hover:bg-black/80 text-white 
-        hover:text-red-500 transition p-2`}
-    >
-      <Icon className={`w-14 h-14 text-white ${isLeft ? '-ml-2' : '-mr-2'}`} />
+        hover:bg-red-500 transition p-2 
+        ${isLeft ? 'left-0' : 'right-0 -mr-10'} 
+        `
+      }>
+      <Icon className={`icon-2xl text-white ${isLeft ? '-ml-2' : '-ml-2'}`} />
     </button>
   );
 }

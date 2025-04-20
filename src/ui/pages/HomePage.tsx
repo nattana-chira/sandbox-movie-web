@@ -16,6 +16,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 export default function HomePage() {
   const { movies, featuredMovie, fetchMovies } = useMovies()
   const [isOpen, setIsOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
   const movieId = searchParams.get('movieId')
@@ -39,7 +40,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="overflow-x-hidden m-h-[100vh] bg-black">
+    <div className="overflow-x-hidden min-h-[100vh] bg-black">
       <MovieDetailModal isOpen={isOpen} onClose={onMovieDetailModalClose} />
       
       {/* Navbar */}
@@ -53,8 +54,32 @@ export default function HomePage() {
             priority
           />
         </div>
-        <div className="flex justify-between items-center w-full text-lg ml-8">
-          <ul className="flex gap-4">
+
+        {/* Mobile Only: Hamburger Menu */}
+        <div className="md:hidden">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="flex gap-2">
+            Browse
+            <ChevronDownIcon className="icon-base text-white mt-1" /> 
+          </button>
+        </div>
+
+        {/* Mobile Only: Main Menu */}
+        {menuOpen && (
+          <div className="md:hidden absolute top-full left-10 w-60 bg-zinc-900 flex flex-col gap-4 px-6 py-4 text-white border-t border-white">
+            <ul className="flex flex-col gap-2">
+              <li className="font-bold">Home</li>
+              <li>TV Shows</li>
+              <li>Movies</li>
+              <li>New & Popular</li>
+              <li>My List</li>
+              <li>Browse by Languages</li>
+            </ul>
+          </div>
+        )}
+
+        <div className="flex justify-end md:justify-between items-center w-full text-lg ml-8">
+          {/* Desktop Only: Main Menu */}
+          <ul className="hidden md:flex gap-4">
             <li className="font-bold">Home</li>
             <li>TV Shows</li>
             <li>Movies</li>
@@ -82,22 +107,24 @@ export default function HomePage() {
       </nav>
 
       {/* Banner */}
-      <div className="relative h-[100vh] bg-cover bg-center" style={{ backgroundImage: `url(${featuredMovie?.backdropUrl})` }}>
+      <div className="relative bg-cover bg-center responsive-banner" style={{ backgroundImage: `url(${featuredMovie?.backdropUrl})` }}>
         <div className="absolute inset-0 flex flex-col justify-center px-10">
           {featuredMovie && (
             <Fragment>
-              <h1 className="text-white text-4xl md:text-6xl font-bold mb-2">{featuredMovie.title}</h1>
+              <h1 className="text-white text-4xl font-bold mb-2">{featuredMovie.title}</h1>
               <div className="flex items-center gap-3">
-                <IconTopTen />
+                <IconTopTen className="icon-xl" />
                 <div className="text-white font-bold text-xl">#1 in TV Shows Today</div>
               </div>
-              <p className="text-white mt-4 max-w-lg">
+              <p className="text-white mt-4 max-w-lg text-base">
                 {featuredMovie.overview}
               </p>
               <div className="mt-4 flex gap-2">
-                <button className="w-35 h-13 bg-white text-black px-4 py-2 rounded font-bold">▶ Play</button>
-                <button className="flex items-center justify-center w-40 h-13 bg-gray-600 text-white px-4 py-2 rounded gap-2 font-bold">
-                  <IconInfo />
+                <button className="button-xl text-xl bg-white text-black rounded font-bold">
+                  ▶ Play
+                </button>
+                <button className="button-2xl text-xl flex items-center justify-center bg-gray-600 text-white rounded font-bold">
+                  <IconInfo className="icon-base"/>
                   More Info
                 </button>
               </div>
@@ -108,7 +135,7 @@ export default function HomePage() {
       </div>
 
       {/* Movie Row */}
-      <MovieRow categoryTitle={'Popular on Netflix'} movies={movies} className="-mt-75 mb-10" onSelectMovie={onSelectMovie} />
+      <MovieRow categoryTitle={'Popular on Netflix'} movies={movies} className="-mt-[10vw] mb-10" onSelectMovie={onSelectMovie} />
     </div>
   );
 }

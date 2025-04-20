@@ -1,7 +1,6 @@
 'use client';
 
 import Image from "next/image";
-import { Movie } from "../domain/entity/movie";
 import { Episode, MovieDetails } from "../domain/entity/movie-detail";
 
 type Props = {
@@ -15,7 +14,7 @@ export default function MovieEpisode({ movieDetails, episode, isFirstEp = false 
     return null
 
   return (
-    <div key={episode.id} className={`flex items-start gap-4 hover:bg-zinc-700 transition px-4 py-8 rounded border-b-1 border-[#404040] ${isFirstEp ? 'bg-zinc-800' : ''}`}>
+    <div key={episode.id} className={`flex items-center gap-4 hover:bg-zinc-700 transition px-4 py-8 rounded border-b-1 border-[#404040] ${isFirstEp ? 'bg-zinc-800' : ''}`}>
       <div className="text-2xl font-bold text-gray-300 w-10 text-right">{episode.number}</div>
       <div className="w-32 h-20 relative rounded overflow-hidden flex-shrink-0">
         <Image
