@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { useRef } from 'react';
 import ScrollArrowButton from './MovieArrow';
 import { Movie } from '../domain/entity/movie';
+import MovieCard from './MovieCard';
 
 type Props = {
   categoryTitle: string;
@@ -28,7 +28,7 @@ export default function MovieRow({ categoryTitle, movies, onSelectMovie, classNa
       <h2 className="text-3xl font-semibold relative text-white mb-2">{categoryTitle}</h2>
 
       {/* Arrows */}
-      <div className="relative">
+      <div className="relative -mt-17">
         <ScrollArrowButton direction="left" onClick={scroll} />
         <ScrollArrowButton direction="right" onClick={scroll} />
       </div>
@@ -37,24 +37,14 @@ export default function MovieRow({ categoryTitle, movies, onSelectMovie, classNa
       <div className="relative w-[calc(96vw)]">
         <div
           ref={scrollRef}
-          className="flex overflow-x-hidden overflow-y-hidden gap-2 scrollbar-hide scroll-smooth snap-x snap-mandatory"
+          className="flex hide-scrollbar overflow-y-scroll scrollbar-hide scroll-smooth snap-x snap-mandatory py-18 gap-2"
         >
-          {movies.map((movie) => (
-            <div
-              key={movie.id}
-              className="snap-start shrink-0 hover:scale-105 transition-transform duration-200 cursor-pointer"
-              onClick={() => onSelectMovie(movie)}
-            >
-     
-                <Image
-                  src={`${movie.backdropUrl}`}
-                  width={380}
-                  height={211}
-                  alt={movie.title}
-                  className="w-[45vw] sm:w-[40vw] md:w-[23vw] lg:w-[15vw] rounded"
-                />
-          
-            </div>
+          {movies.map((movie, index) => (
+            <MovieCard 
+              key={index}
+              movie={movie}
+              onSelectMovie={() => onSelectMovie(movie)}
+            />
           ))}
         </div>
       </div>

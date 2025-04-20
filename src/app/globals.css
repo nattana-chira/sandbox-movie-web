@@ -29,8 +29,33 @@ body {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
 .responsive-banner {
   @apply h-[51vw];
+}
+
+.responsive-movie-slider-arrow {
+  @apply max-w-[60px] w-[calc(4.5vw)] sm:w-[calc(4.5vw)] md:w-[calc(4vw)] lg:w-[calc(3.5vw)];
+  @apply h-[calc(25.3vw)] sm:h-[calc(22.4vw)] md:h-[calc(13vw)] lg:h-[calc(8.5vw)];
+  @apply absolute z-30 cursor-pointer absolute z-30 cursor-pointer bg-black/50 hover:bg-black/80 text-white transition;
+}
+
+.responsive-movie-card {
+  @apply w-[45vw] sm:w-[40vw] md:w-[23vw] lg:w-[15vw]
+}
+
+.text-2xs {
+  font-size: clamp(0.1rem, 0.4vw, 0.4rem);
 }
 
 .text-xs {
@@ -107,6 +132,10 @@ body {
 
 .gap-6 {
   @apply gap-[calc(1.9vw)]
+}
+
+.text-2xs {
+  font-size: 0.4rem
 }
 
 .text-xs-fixed {

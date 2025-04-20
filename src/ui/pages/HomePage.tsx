@@ -40,7 +40,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="overflow-x-hidden min-h-[100vh] bg-black">
+    <div className="overflow-x-hidden min-h-[100vh] bg-[#141414] pb-50">
       <MovieDetailModal isOpen={isOpen} onClose={onMovieDetailModalClose} />
       
       {/* Navbar */}
