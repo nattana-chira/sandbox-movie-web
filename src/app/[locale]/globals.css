@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -29,16 +31,16 @@ body {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+/* Custom Responsive & Style */
 
 .responsive-banner {
   @apply h-[51vw];
@@ -51,8 +53,49 @@ body {
 }
 
 .responsive-movie-card {
-  @apply w-[45vw] sm:w-[40vw] md:w-[23vw] lg:w-[15vw]
+  @apply w-[45vw] sm:w-[40vw] md:w-[23vw] lg:w-[15vw];
+  @apply bg-[#222] dark:bg-[#fff];
 }
+
+.home-page {
+  @apply bg-[#141414] dark:bg-[#eee];
+}
+
+.movie-detail-page {
+  @apply bg-zinc-900 dark:bg-[#fff];
+}
+
+.episode-panel {
+  @apply hover:bg-zinc-700 dark:hover:bg-gray-300;
+}
+
+.first-episode {
+  @apply bg-zinc-800 dark:bg-gray-200
+}
+
+/* Theme Style */
+
+.text-white {
+  @apply dark:text-black;
+}
+
+.text-gray-400 {
+  @apply dark:text-gray-600
+}
+
+.text-white-fixed {
+  @apply text-white;
+}
+
+.border-white {
+  @apply dark:border-black
+}
+
+.border-gray-300 {
+  @apply dark:border-gray-900
+}
+
+/* Responsive Font */
 
 .text-2xs {
   font-size: clamp(0.1rem, 0.4vw, 0.4rem);
@@ -90,6 +133,8 @@ body {
   font-size: clamp(0.45rem, 4vw, 3rem);
 }
 
+/* Responsive Button */
+
 .button-xl {
   @apply w-[calc(10px+10vw)] max-w-[120px] h-[calc(5px+3vw)] max-h-12 p-0 gap-[1vw]
 }
@@ -97,6 +142,8 @@ body {
 .button-2xl {
   @apply w-[calc(10px+15vw)] max-w-[180px] h-[calc(5px+3vw)] max-h-12 p-0 gap-[calc(5px+0.5vw)]
 }
+
+/* Responsive Icon */
 
 .icon-base {
   @apply w-[2vw]
@@ -109,6 +156,8 @@ body {
 .icon-2xl {
   @apply w-[calc(8px+2.7vw)]
 }
+
+/* Responsive Gap */
 
 .gap-1 {
   @apply gap-[calc(.4vw)]
@@ -133,6 +182,8 @@ body {
 .gap-6 {
   @apply gap-[calc(1.9vw)]
 }
+
+/* Fixed Font */
 
 .text-2xs {
   font-size: 0.4rem

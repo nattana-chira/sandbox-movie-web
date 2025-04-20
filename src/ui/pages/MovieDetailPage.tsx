@@ -36,11 +36,11 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
 
   return (
     <Dialog open={isOpen} onClose={onClose} className="fixed inset-0 z-50">
-      <div className="fixed inset-0 bg-black/80 backdrop-blur-sm" aria-hidden="true" />
+      <div className="fixed inset-0 bg-black/80 dark backdrop-blur-sm" aria-hidden="true" />
       <div className="fixed inset-0 flex items-start justify-center overflow-y-auto">
 
-          <DialogPanel className="relative w-full max-w-5xl mx-auto rounded-xl bg-zinc-900 text-white shadow-xl overflow-hidden mt-10">
-            <button onClick={onClose} className="absolute top-4 right-4 z-10 p-2 text-white hover:text-red-400 cursor-pointer">
+          <DialogPanel className="movie-detail-page relative w-full max-w-5xl mx-auto rounded-xl text-white shadow-xl overflow-hidden mt-10">
+            <button onClick={onClose} className="absolute text-white-fixed top-4 right-4 z-10 p-2 hover:text-red-400 cursor-pointer">
               <IconClose />
             </button>
 
@@ -52,7 +52,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                 <div className="relative h-128 w-full">
                   <Image src={movieDetails.backdropUrl} alt={movieDetails.title} fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 pl-6 text-2xl-fixed font-bold">{movieDetails.title}</div>
+                  <div className="absolute bottom-0 pl-6 text-2xl-fixed font-bold text-white-fixed">{movieDetails.title}</div>
                   <button className="button-2xl absolute bottom-0 ml-6 mb-20 bg-white text-black rounded font-bold text-xl">
                     ▶ {t('next_episode')}
                   </button>
@@ -63,7 +63,7 @@ export default function MovieDetailModal({ isOpen, onClose }: Props) {
                   <div className="flex max-ful gap-6">
                     <div className="w-[60%]">
                       <div className="flex justify-between items-start mb-4">
-                        <h2 className="text-xl-fixed text-gray-300">{movieDetails.year} {movieDetails.totalSeasons} {t('seasons')} [HD]</h2>
+                        <h2 className="text-xl-fixed text-gray-400">{movieDetails.year} {movieDetails.totalSeasons} {t('seasons')} [HD]</h2>
                       </div>
                       
                       <div className="flex gap-2 mb-4">

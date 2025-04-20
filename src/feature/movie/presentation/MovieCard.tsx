@@ -27,7 +27,7 @@ export default function MovieCard({ movie, onSelectMovie }: Props) {
         className={`responsive-movie-card ${isHovered ? 'rounded-t' : 'rounded'}`}
       />
       {isHovered && (
-        <div className="responsive-movie-card min-h-20 text-xs text-white shadow-[0_4px_12px_rgba(0,0,0,0.2)] bg-[#222] p-2 rounded-b">
+        <div className="responsive-movie-card min-h-20 text-xs text-white shadow-[0_4px_12px_rgba(0,0,0,0.2)] p-2 rounded-b">
           <div className="flex text-white gap-1 mb-2">
             <CircleIconWrapper>
               <PlayIcon className="w-3 h-3" />
@@ -42,8 +42,8 @@ export default function MovieCard({ movie, onSelectMovie }: Props) {
             </CircleIconWrapper>
           </div>
 
-          <div className="flex items-center border-[#999] text-[#888] gap-2 mb-1">
-            <span className="text-2xs border-[#999] border-1 px-2">16+</span>
+          <div className="flex items-center text-[#888] gap-2 mb-1">
+            <span className="text-2xs border-white border-1 px-2">16+</span>
             <div className="text-2xs">8 Episodes</div>
           </div>
 

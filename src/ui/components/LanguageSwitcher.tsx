@@ -17,14 +17,14 @@ function LanguageSwitcher() {
     <div className="flex gap-1 items-center">
       <div
         onClick={() => changeLanguage('en')}
-        className="flex items-center p-1 py-0 border rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer"
+        className="flex items-center p-1 py-0 border rounded hover:bg-gray-600 cursor-pointer"
       >
         EN
       </div>
 
       <div
         onClick={() => changeLanguage('th')}
-        className="flex items-center p-1 py-0 border rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer"
+        className="flex items-center p-1 py-0 border rounded hover:bg-gray-600 cursor-pointer"
       >
         ไทย
       </div>

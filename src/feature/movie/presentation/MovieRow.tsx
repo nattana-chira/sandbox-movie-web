@@ -25,7 +25,7 @@ export default function MovieRow({ categoryTitle, movies, onSelectMovie, classNa
 
   return (
     <div className={"px-10 py-4 " + className}>
-      <h2 className="text-3xl font-semibold relative text-white mb-2">{categoryTitle}</h2>
+      <h2 className="text-3xl font-semibold relative text-white-fixed mb-2">{categoryTitle}</h2>
 
       {/* Arrows */}
       <div className="relative -mt-17">

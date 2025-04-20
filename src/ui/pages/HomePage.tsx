@@ -15,6 +15,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import FeaturedMovieLoadingSkeleton from "@/feature/movie/presentation/FeaturedMovieLoadingSkeleton";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { useTranslations } from 'next-intl';
+import ThemeToggle from "../components/ThemeToggle";
 
 export default function HomePage() {
   const { movies, featuredMovie, fetchMovies } = useMovies()
@@ -44,11 +45,11 @@ export default function HomePage() {
   }
 
   return (
-    <div className="overflow-x-hidden min-h-[100vh] bg-[#141414] pb-50">
+    <div className="home-page overflow-x-hidden min-h-[100vh] pb-50">
       <MovieDetailModal isOpen={isOpen} onClose={onMovieDetailModalClose} />
       
       {/* Navbar */}
-      <nav className="flex absolute w-full z-10 justify-between items-center px-6 py-4 text-white navbar">
+      <nav className="flex absolute w-full z-10 justify-between items-center px-6 py-4 text-white-fixed navbar">
         <div className="text-red-600 text-2xl font-bold">
           <Image
             src="/netflix-icon.png"
@@ -63,13 +64,13 @@ export default function HomePage() {
         <div className="md:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)} className="flex gap-2">
             Browse
-            <ChevronDownIcon className="icon-base text-white mt-1" /> 
+            <ChevronDownIcon className="icon-base mt-1" /> 
           </button>
         </div>
 
         {/* Mobile Only: Main Menu */}
         {menuOpen && (
-          <div className="md:hidden absolute top-full left-10 w-60 bg-zinc-900 flex flex-col gap-4 px-6 py-4 text-white border-t border-white">
+          <div className="md:hidden absolute top-full left-10 w-60 bg-zinc-900 flex flex-col gap-4 px-6 py-4 border-t border-white">
             <ul className="flex flex-col gap-2">
               <li className="font-bold">{t('home')}</li>
               <li>{t('tv_shows')}</li>
@@ -93,6 +94,7 @@ export default function HomePage() {
           </ul>
 
           <ul className="flex gap-4 mr-6">
+            <li><ThemeToggle /></li>
             <li><LanguageSwitcher /></li>
             <li><IconSearch /></li>
             <li>{t('kids')}</li>
@@ -105,7 +107,7 @@ export default function HomePage() {
                 height={10}
                 priority
               />
-              <ChevronDownIcon className="h-5 w-5 text-white mt-1" />
+              <ChevronDownIcon className="h-5 w-5 mt-1" />
             </li>
           </ul>
         </div>
@@ -117,22 +119,22 @@ export default function HomePage() {
         <Fragment>
           {/* Featured Movie Banner */}
           <div className="relative bg-cover bg-center responsive-banner" style={{ backgroundImage: `url(${featuredMovie.backdropUrl})` }}>
-            <div className="absolute inset-0 flex flex-col justify-center px-10">
+            <div className="absolute inset-0 flex flex-col justify-center text-white-fixed px-10">
               {featuredMovie && (
                 <Fragment>
-                  <h1 className="text-white text-4xl font-bold mb-2">{featuredMovie.title}</h1>
+                  <h1 className="text-4xl font-bold mb-2">{featuredMovie.title}</h1>
                   <div className="flex items-center gap-3">
                     <IconTopTen className="icon-xl" />
-                    <div className="text-white font-bold text-xl">#1 {t('in_tv_shows_today')}</div>
+                    <div className="font-bold text-xl">#1 {t('in_tv_shows_today')}</div>
                   </div>
-                  <p className="text-white mt-4 max-w-lg text-base">
+                  <p className="mt-4 max-w-lg text-base">
                     {featuredMovie.overview}
                   </p>
                   <div className="mt-4 flex gap-2">
                     <button className="button-xl text-xl bg-white text-black rounded font-bold">
                       ▶ {t('play')}
                     </button>
-                    <button className="button-2xl text-xl flex items-center justify-center bg-gray-600 text-white rounded font-bold">
+                    <button className="button-2xl text-xl flex items-center justify-center bg-gray-600 rounded font-bold">
                       <IconInfo className="icon-base"/>
                       {t('more_info')}
                     </button>

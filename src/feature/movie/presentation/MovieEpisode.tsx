@@ -14,8 +14,13 @@ export default function MovieEpisode({ movieDetails, episode, isFirstEp = false 
     return null
 
   return (
-    <div key={episode.id} className={`flex items-center gap-4 hover:bg-zinc-700 transition px-4 py-8 rounded border-b-1 border-[#404040] ${isFirstEp ? 'bg-zinc-800' : ''}`}>
-      <div className="text-2xl font-bold text-gray-300 w-10 text-right">{episode.number}</div>
+    <div 
+      key={episode.id} 
+      className={`
+        episode-panel flex items-center transition gap-4 px-4 py-8 rounded border-b-1 border-[#404040] 
+        ${isFirstEp ? 'first-episode' : ''}
+      `}>
+      <div className="text-2xl font-bold text-gray-400 w-10 text-right">{episode.number}</div>
       <div className="w-32 h-20 relative rounded overflow-hidden flex-shrink-0">
         <Image
           src={movieDetails.backdropUrl}

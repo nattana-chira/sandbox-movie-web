@@ -22,7 +22,7 @@ export default function ScrollArrowButton({ direction, onClick }: Props) {
         p-2 my-18
         ${isLeft ? 'left-0' : 'right-0 -mr-10'} 
       `}>
-      <Icon className={`icon-2xl text-white ${isLeft ? '-ml-2' : '-ml-2'}`} />
+      <Icon className={`icon-2xl text-white-fixed ${isLeft ? '-ml-2' : '-ml-2'}`} />
     </button>
   );
 }
