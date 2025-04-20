@@ -28,15 +28,15 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 ** This won't work unless you serve another project **sandbox-movie-web** as a backend API.  
 
 ## 🛠️ Tech Stack
-
-**TypeScript** 
-**Next.js** 
-**TailwindCSS**
-**Headlessui** UI (modal)
-**HeroIcons** icon asset
-**Axios**
-**Next-intl** locales translation
-**Next-themes** light/dark theme
+  
+**TypeScript**  
+**Next.js**   
+**TailwindCSS**  
+**Headlessui** UI (modal)  
+**HeroIcons** icon asset  
+**Axios**  
+**Next-intl** locales translation  
+**Next-themes** light/dark theme  
 
 ## 📁 Project Structure
 ```bash
